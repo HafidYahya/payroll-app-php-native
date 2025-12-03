@@ -1,0 +1,194 @@
+.card-login {
+  width: 24rem;
+}
+.body-login {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../images/bg-login.webp");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #f5f7fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* ======================== */
+/* SIDEBAR */
+/* ======================== */
+.sidebar {
+  height: 100vh;
+  width: 250px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #222;
+  color: #f5c857;
+  padding-top: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.28s ease, width 0.28s ease;
+  z-index: 1100;
+  overflow-y: auto;
+}
+
+.sidebar .brand {
+  color: #f5c857;
+  padding: 0 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  font-size: 15px;
+  transition: 0.25s ease;
+  border-left: 4px solid transparent;
+}
+
+.sidebar a i {
+  width: 20px;
+}
+
+.sidebar a:hover {
+  background: rgba(245, 200, 87, 0.12);
+  border-left: 4px solid #f5c857;
+  color: #f5c857;
+}
+
+.sidebar a.active {
+  background: rgba(245, 200, 87, 0.12);
+  border-left: 4px solid #f5c857;
+  font-weight: 600;
+  color: #f5c857 !important;
+}
+
+/* collapsed state (hidden) - slide left */
+.sidebar.collapsed {
+  transform: translateX(-110%);
+}
+
+/* small collapsed visual (narrow) if you want an icon-only sidebar later */
+.sidebar.narrow {
+  width: 72px;
+}
+
+/* ======================== */
+/* OVERLAY (mobile) */
+/* ======================== */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1050;
+  transition: opacity 0.2s ease;
+}
+.overlay.hidden {
+  display: none;
+  opacity: 0;
+}
+
+/* ======================== */
+/* CONTENT */
+/* ======================== */
+.content {
+  margin-left: 250px;
+  padding: 25px;
+  transition: margin-left 0.28s ease;
+}
+
+/* when sidebar collapsed, content full width */
+.content.full {
+  margin-left: 0;
+}
+
+/* ======================== */
+/* NAVBAR */
+/* ======================== */
+.top-navbar {
+  border-left: 5px solid #f5c857;
+}
+
+/* toggle button in navbar (visible for all sizes) */
+.toggle-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #222;
+  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Content card and table styles */
+.dashboard-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px;
+  border-radius: 12px;
+  background: white;
+  border: none;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.dashboard-card i {
+  font-size: 42px;
+  color: #f5c857;
+}
+.dashboard-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.chart-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 260px;
+  font-size: 18px;
+  color: #555;
+  background: #f1f1f1;
+  border-left: 5px solid #f5c857;
+}
+
+table thead {
+  background: #f5c857;
+  color: black;
+  font-weight: bold;
+}
+
+/* ======================== */
+/* RESPONSIVE BEHAVIOR */
+/* ======================== */
+
+/* On small screens, sidebar is hidden by default (collapsed) and overlay used */
+@media (max-width: 991px) {
+  .sidebar {
+    transform: translateX(-110%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .content {
+    margin-left: 0;
+  }
+}
+
+/* On very small screens ensure padding is comfortable */
+@media (max-width: 575px) {
+  .content {
+    padding: 16px;
+  }
+  .dashboard-card {
+    padding: 16px;
+  }
+}
